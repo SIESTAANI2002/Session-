@@ -1,19 +1,15 @@
 from pyrogram import Client
-import os
 
-# Ask user for credentials
-API_ID = int(input("Enter your API_ID from my.telegram.org: "))
-API_HASH = input("Enter your API_HASH from my.telegram.org: ")
-SESSION_NAME = input("Enter a short session name (e.g., anime_userbot): ")
+print("🔑 Pyrogram Session Generator\n")
 
-# Create the client
+API_ID = int(input("👉 Enter your API_ID (from https://my.telegram.org/apps): "))
+API_HASH = input("👉 Enter your API_HASH: ")
+SESSION_NAME = input("👉 Enter a short session name (e.g., anime_userbot): ")
+
 app = Client(SESSION_NAME, api_id=API_ID, api_hash=API_HASH)
 
 print("\n⚡ Starting login process...")
-app.run()  # Interactive login: phone + code + 2FA if required
+app.run()  # Will ask phone, code, and 2FA if enabled
 
-# Success message
-print(f"\n✅ Session generated successfully: {SESSION_NAME}.session")
-
-# Optional: show download path in Replit
-print(f"Your session file is in the Replit project folder. Download it to use on Heroku.")
+print(f"\n✅ Session generated successfully! File saved as {SESSION_NAME}.session")
+print("➡️ Download this .session file and upload it to Heroku/GitHub with your bot.")
